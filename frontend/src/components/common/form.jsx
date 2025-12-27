@@ -16,6 +16,8 @@ function CommonForm({
   onSubmit,
   buttonText,
 }) {
+
+  console.log(formControls)
   function renderInputs(getControlItem) {
     let element = null;
     const value = formData[getControlItem.name] || "";
@@ -100,10 +102,10 @@ function CommonForm({
     <>
       <form onSubmit={onSubmit}>
         <div className="flex flex-col gap-3">
-          {formControls && formControls.map((controlIten) => (
-            <div className="grid w-full gap-1.5" key={controlIten.name}>
-              <Label className="mb-1">{controlIten.label}</Label>
-              {renderInputs(controlIten)}
+          {formControls && formControls.map((controlItem) => (
+            <div className="grid w-full gap-1.5" key={controlItem.name}>
+              <Label className="mb-1">{controlItem.label}</Label>
+              {renderInputs(controlItem)}
             </div>
           ))}
         </div>
