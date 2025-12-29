@@ -17,7 +17,6 @@ function CommonForm({
   buttonText,
 }) {
 
-  console.log(formControls)
   function renderInputs(getControlItem) {
     let element = null;
     const value = formData[getControlItem.name] || "";
@@ -29,7 +28,7 @@ function CommonForm({
             placeholder={getControlItem.placeholder}
             id={getControlItem.name}
             type={getControlItem.type}
-            valu={value}
+            value={value}
             onChange={(event) =>
               setFormData({
                 ...formData,
@@ -54,7 +53,7 @@ function CommonForm({
             <SelectContent>
               {getControlItem.options && getControlItem.options.length > 0
                 ? getControlItem.options.map((optionItem) => (
-                    <SelectItem key={optionItem.id} valu={optionItem.id}>
+                    <SelectItem key={optionItem.id} value={optionItem.id}>
                       {optionItem.label}
                     </SelectItem>
                   ))
@@ -69,7 +68,7 @@ function CommonForm({
             name={getControlItem.name}
             placeholder={getControlItem.placeholder}
             id={getControlItem.id}
-             valu={value}
+             value={value}
             onChange={event => setFormData({
                 ...formData,
                 [getControlItem.name] : event.target.value
@@ -84,7 +83,7 @@ function CommonForm({
             placeholder={getControlItem.placeholder}
             id={getControlItem.name}
             type={getControlItem.type}
-            valu={value}
+            value={value}
             onChange={(event) =>
               setFormData({
                 ...formData,

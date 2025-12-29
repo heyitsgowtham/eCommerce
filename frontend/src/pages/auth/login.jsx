@@ -2,6 +2,11 @@ import { LoginFormControls } from '../../config/config'
 import CommonForm from '../../components/common/form'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { loginUser } from '@/store/authSlice/authSlice'
+import { toast } from "sonner"
+
+
 
 
 const initialState = {
@@ -13,7 +18,17 @@ const initialState = {
 const Authlogin = () => {
 
   const [formData, setFormData] = useState(initialState);
-  function onSubmit(){}
+  const dispatch = useDispatch()
+  function onSubmit(event){
+      event.preventDefault();
+      dispatch(loginUser(formData)).then(data => {
+        if(data?.payload?.success) {
+            toast('Login Succesfully')
+        }else if(!data?.payload?.success){
+          toast('Invalid credentials please try again!')
+        }
+      })
+  }
 
 
   return (

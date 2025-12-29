@@ -1,21 +1,39 @@
 import { registerFormControls } from '../../config/config'
 import CommonForm from '../../components/common/form'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { registerUser } from '@/store/authSlice/authSlice'
+import { toast } from "sonner"
 
 
 const initialState = {
   userName : '',
   email : '',
-  passowrd : ''
+  password : ''
 }
 
 
 const AuthRegister = () => {
 
   const [formData, setFormData] = useState(initialState);
-  function onSubmit(){}
+  const dispatch =  useDispatch();
+  const navigate = useNavigate()
 
+
+
+  function onSubmit(event){
+    event.preventDefault();
+    dispatch(registerUser(formData)).then((data) => {
+      if(data?.payload?.success) {
+        toast("Registration Successfully.");
+        navigate('/auth/login')
+      }else{
+         toast("User Already exists! please try with another email id");
+      }
+    })
+  }
+ 
 
   return (
       <div className='mx-auto w-ful max-w-md space-y-6'>
