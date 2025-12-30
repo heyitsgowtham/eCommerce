@@ -21,6 +21,7 @@ export const registerUser = createAsyncThunk(
   }
 );
 
+
 export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
   const response = await axios.post(
     "http://localhost:5000/api/auth/login",
@@ -31,6 +32,7 @@ export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
   );
   return response.data;
 });
+
 
 export const checkAuth = createAsyncThunk("/auth/checkAuth", async () => {
   const response = await axios.get(
@@ -44,6 +46,7 @@ export const checkAuth = createAsyncThunk("/auth/checkAuth", async () => {
   );
   return response.data;
 });
+
 
 const authSlice = createSlice({
   name: "auth",
@@ -66,7 +69,6 @@ const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
       })
-
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
       })
@@ -88,8 +90,6 @@ const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
       })
-
-
        .addCase(checkAuth.pending, (state) => {
         state.isLoading = true;
       })

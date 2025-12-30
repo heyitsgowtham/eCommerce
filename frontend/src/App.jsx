@@ -36,43 +36,19 @@ function App() {
     <>
       <div className="flex flex-col overflow-hidden bg-white">
         <Routes>
-
-          
-          <Route
-            path="/auth"
-            element={
-              <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-                <Authlayout />
-              </CheckAuth>
-            }
-          >
+          <Route path="/auth" element={ <CheckAuth isAuthenticated={isAuthenticated} user={user}> <Authlayout /></CheckAuth>}>
             <Route path="login" element={<AuthLogin />}></Route>
             <Route path="register" element={<AuthRegister />}></Route>
           </Route>
 
-
-          <Route
-            path="/admin"
-            element={
-              <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-                <AdminViewLayout />
-              </CheckAuth>
-            }
-          >
+          <Route path="/admin" element={ <CheckAuth isAuthenticated={isAuthenticated} user={user}> <AdminViewLayout /></CheckAuth>}>
             <Route path="dashboard" element={<Admindashboard />} />
             <Route path="products" element={<Adminproducts />} />
             <Route path="orders" element={<Adminorders />} />
             <Route path="features" element={<Adminfeatures />} />
           </Route>
 
-          <Route
-            path="/shop"
-            element={
-              <CheckAuth isAuthenticated={isAuthenticated} user={user}>
-                <ShopingViewLayout />
-              </CheckAuth>
-            }
-          >
+          <Route path="/shop" element={ <CheckAuth isAuthenticated={isAuthenticated} user={user}><ShopingViewLayout /></CheckAuth> }>
             <Route path="home" element={<ShoppingHome />}></Route>
             <Route path="products" element={<ShoppingProduct />}></Route>
             <Route path="checkout" element={<ShoppingCheckout />}></Route>
