@@ -18,7 +18,9 @@ const initialState = {
 const Authlogin = () => {
 
   const [formData, setFormData] = useState(initialState);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  
   function onSubmit(event){
       event.preventDefault();
       dispatch(loginUser(formData)).then(data => {
