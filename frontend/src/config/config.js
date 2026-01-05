@@ -1,3 +1,5 @@
+import { lazy } from "react";
+
 export const registerFormControls = [
    { 
         name : 'userName',
@@ -109,41 +111,41 @@ export const shoppingViewHeaderMenuItems = [
     label: "Home",
     path: "/shop/home",
   },
-  {
-    id: "products",
-    label: "Products",
-    path: "/shop/listing",
-  },
+  // {
+  //   id: "products",
+  //   label: "Products",
+  //   path: "/shop/listing",
+  // },
   {
     id: "men",
     label: "Men",
-    path: "/shop/listing",
+    path: "/shop/products",
   },
   {
     id: "women",
     label: "Women",
-    path: "/shop/listing",
+    path: "/shop/products",
   },
   {
     id: "kids",
     label: "Kids",
-    path: "/shop/listing",
+    path: "/shop/products",
   },
   {
     id: "footwear",
     label: "Footwear",
-    path: "/shop/listing",
+    path: "/shop/products",
   },
   {
     id: "accessories",
     label: "Accessories",
-    path: "/shop/listing",
+    path: "/shop/products",
   },
-  {
-    id: "search",
-    label: "Search",
-    path: "/shop/search",
-  },
+  // {
+  //   id: "search",
+  //   label: "Search",
+  //   path: "/shop/search",
+  // },
 ];
 
 export const categoryOptionsMap = {
@@ -224,3 +226,4 @@ export const addressFormControls = [
     placeholder: "Enter any additional notes",
   },
 ];
+
