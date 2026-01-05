@@ -11,7 +11,7 @@ const adminViewLayout = () => {
       <AdminsideBar open={openSidebar} setOpen={setOpenSidebar}/>
       <div className="flex flex-1 flex-col">
         <Adminheader setOpen={setOpenSidebar}/>
-        <main className="flex bg-muted/40 p-4 md:p-6">
+        <main className=" bg-muted/40 p-4 md:p-6">
           <Outlet />
         </main>
       </div>
